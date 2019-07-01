@@ -11,10 +11,9 @@ public class EditerCollaborateurController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        if (req.getParameter("matricule") != null) {
+        String matriculeParam = req.getParameter("matricule");
+        if (matriculeParam != null) {
             resp.setStatus(200);
-            String matriculeParam = req.getParameter("matricule");
             resp.setContentType("text/html");
 
             resp.getWriter().write("<h1>Edition de collaborateur</h1>" + "<p>Matricule : " + matriculeParam + "</p>");
