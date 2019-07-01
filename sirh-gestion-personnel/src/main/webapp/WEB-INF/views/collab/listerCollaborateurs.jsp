@@ -5,20 +5,12 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>SGP - App</title>
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-4.3.1-dist/css/bootstrap.css"/>
 	</head>
 
 	<body>
 		<h1>Les collaborateurs</h1>
-		<ul>
-		<%
-		List<String> listeNoms = (List<String>)request.getAttribute("listeNoms");
-		for (String nom : listeNoms) {
-		%>
-			<li><%= nom%></li>
-		<%
-		}
-		%>
-		</ul>
+
 	</body>
 
 
