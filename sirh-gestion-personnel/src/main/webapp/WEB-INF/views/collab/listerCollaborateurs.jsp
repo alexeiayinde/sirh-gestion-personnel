@@ -15,9 +15,9 @@
 
 <body>
 	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link active" href="#">Collaborateurs</a>
+		<li class="nav-item"><a class="nav-link active" href="<c:url value="lister"/>">Collaborateurs</a>
 		</li>
-		<li class="nav-item"><a class="nav-link" href="#">...</a></li>
+		<li class="nav-item"><a class="nav-link" href="<c:url value="../statistiques"/> ">Statistiques</a></li>
 	</ul>
 
 	<div class="container">
@@ -30,11 +30,11 @@
 		</div>
 	</div>
 
-	<h2 class="mt-3 ml-3 mb-2">Les collaborateurs</h2>
+	<h2 class="mt-3 ml-5 mb-5">Les collaborateurs</h2>
 
 	<div class="container-fluid">
 		<form>
-			<div class="row">
+			<div class="row ml-3">
 				<div class="col-3">
 					<label for="rechercher">Rechercher un nom ou un prénom qui
 						commence par : </label>
@@ -54,7 +54,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row ml-3">
 				<div class="col-3">
 					<label for="filtreRechercher">Filtrer par département : </label>
 				</div>

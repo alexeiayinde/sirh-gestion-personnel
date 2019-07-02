@@ -32,7 +32,7 @@ public class EditerCollaborateurController extends HttpServlet {
                 }
             }
             if (collabExists)
-                req.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateur.jsp");
+                req.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateur.jsp").forward(req, resp);
             else
                 resp.sendError(400);
         } else {
