@@ -7,20 +7,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dev.sgp.entite.Collaborateur;
+import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
+import dev.sgp.util.Constantes;
+
 public class EditerCollaborateurController extends HttpServlet {
+
+    private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+    private DepartementService departService = Constantes.DEPART_SERVICE;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        String matriculeParam = req.getParameter("matricule");
-//        if (matriculeParam != null) {
-//            resp.setStatus(200);
-//            resp.setContentType("text/html");
-//
-//            resp.getWriter().write("<h1>Edition de collaborateur</h1>" + "<p>Matricule : " + matriculeParam + "</p>");
-//        } else {
-//            resp.sendError(400);
-//        }
+        String matriculeParam = req.getParameter("matricule");
+        if (matriculeParam != null) {
+            resp.setStatus(200);
+            boolean collabExists = false;
+            for (Collaborateur collab : collabService.listerCollaborateurs()) {
+                if (collab.getMatricule().equals(matriculeParam)) {
+                    req.setAttribute("collab", collab);
+                    collabExists = true;
+                    break;
+                }
+            }
+            if (collabExists)
+                req.getRequestDispatcher("/WEB-INF/views/collab/editerCollaborateur.jsp");
+            else
+                resp.sendError(400);
+        } else {
+            resp.sendError(400);
+        }
     }
 
 //    @Override

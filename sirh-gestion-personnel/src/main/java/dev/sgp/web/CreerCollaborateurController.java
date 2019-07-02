@@ -17,7 +17,7 @@ import dev.sgp.util.Constantes;
 public class CreerCollaborateurController extends HttpServlet {
 
     private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
-    private static int compteurMatricule;
+    private static int compteurMatricule = 1;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
