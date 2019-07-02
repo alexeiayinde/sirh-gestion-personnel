@@ -14,8 +14,8 @@
 		</li>
 		<li class="nav-item"><a class="nav-link" href="#">...</a>
 		</li>
-
 	</ul>
+	
 	<h2 class="mt-3 ml-5">Nouveau collaborateur</h2>
 
 	<div class="container-fluide">

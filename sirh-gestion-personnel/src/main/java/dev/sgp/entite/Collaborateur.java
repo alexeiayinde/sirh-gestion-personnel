@@ -7,6 +7,7 @@ public class Collaborateur {
 
     private String matricule;
     private String nom;
+    private String prenom;
     private LocalDate dateDeNaissance;
     private String adresse;
     private String numeroSecuriteSociale;
@@ -18,11 +19,12 @@ public class Collaborateur {
     public Collaborateur() {
     }
 
-    public Collaborateur(String matricule, String nom, LocalDate dateDeNaissance, String adresse,
+    public Collaborateur(String matricule, String nom, String prenom, LocalDate dateDeNaissance, String adresse,
             String numeroSecuriteSociale, String emailPro, String photo, ZonedDateTime dateHeureCreation,
             boolean actif) {
         this.matricule = matricule;
         this.nom = nom;
+        this.prenom = prenom;
         this.dateDeNaissance = dateDeNaissance;
         this.adresse = adresse;
         this.numeroSecuriteSociale = numeroSecuriteSociale;
@@ -46,6 +48,14 @@ public class Collaborateur {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public LocalDate getDateDeNaissance() {

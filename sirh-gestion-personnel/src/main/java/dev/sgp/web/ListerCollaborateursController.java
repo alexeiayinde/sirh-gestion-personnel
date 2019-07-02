@@ -19,6 +19,8 @@ public class ListerCollaborateursController extends HttpServlet {
 //
 //        req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Hugues"));
 
+        req.setAttribute("listeCollabs", collabService.listerCollaborateurs());
+
         req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 
 //        // récupère la valeur d'un paramètre dont le nom est avecPhoto

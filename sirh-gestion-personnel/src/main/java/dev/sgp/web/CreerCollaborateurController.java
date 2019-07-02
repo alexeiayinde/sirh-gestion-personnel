@@ -37,6 +37,7 @@ public class CreerCollaborateurController extends HttpServlet {
         String securiteSocialeParam = req.getParameter("securiteSociale");
         ZonedDateTime dateHeureCreation = ZonedDateTime.now();
         String emailProParam = prenomParam + "." + nomParam + "@societe.com";
+        String photoParam = "/images/photoDefaut.jpg";
 
         if (nomParam.trim().isEmpty()) {
             resp.setStatus(400);
@@ -48,10 +49,12 @@ public class CreerCollaborateurController extends HttpServlet {
             resp.setStatus(400);
             resp.getWriter().write("Erreur au niveau de la saisie de l'adresse");
         } else {
-            Collaborateur collab = new Collaborateur(matricule, nomParam, dateNaissanceParam, adresseParam,
-                    securiteSocialeParam, emailProParam, "test", dateHeureCreation, true);
+            Collaborateur collab = new Collaborateur(matricule, nomParam, prenomParam, dateNaissanceParam, adresseParam,
+                    securiteSocialeParam, emailProParam, photoParam, dateHeureCreation, true);
 
             collabService.sauvegarderCollaborateur(collab);
+
+            req.setAttribute("listeCollabs", collabService.listerCollaborateurs());
 
             req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
         }
