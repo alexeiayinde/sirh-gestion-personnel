@@ -1,5 +1,6 @@
 <%@ page import="java.util.List"%>
 <%@ page import="dev.sgp.entite.Collaborateur"%>
+<%@ page import="dev.sgp.entite.Departement"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
 	<div class="container">
 		<div class="m-1">
 			<div class="row justify-content-end">
-				<a href="http://localhost:8080/sgp/collaborateurs/nouveau"
+				<a href="<%=request.getContextPath()%>/collaborateurs/nouveau"
 					class="btn btn-secondary btn-lg active" role="button"
 					aria-pressed="true">Ajouter un nouveau collaborateur</a>
 			</div>
@@ -37,7 +38,7 @@
 						commence par : </label>
 				</div>
 				<div class="col-2">
-					<input type="text" class="form-control" id="rechercher">
+					<input type="text" class="form-control" name="rechercher" id="rechercher">
 				</div>
 				<div class="col-2">
 					<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
@@ -52,15 +53,20 @@
 			</div>
 			<div class="row">
 				<div class="col-3">
-					<labelfor"filtreRechercher">Filtrer par département : </label>
+					<label for="filtreRechercher">Filtrer par département : </label>
 				</div>
 
 				<div class="col-2">
-					<select class="custom-select">
-						<option selected value="1">Tous</option>
-						<option value="2">Comptabilité</option>
-						<option value="3">Ressources Humaines</option>
-						<option value="4">Informatique</option>
+					<select class="custom-select" name="filtreRechercher" id="filtreRechercher">
+						<option selected value="0">Tous</option>
+						<%
+							List<Departement> listeDepartements = (List<Departement>)request.getAttribute("listeDeparts");
+							for (Departement depart : listeDepartements) {
+						%>						
+						<option value="<%=depart.getId()%>"><%=depart.getNom() %></option>
+						<%
+							}
+						%>
 					</select>
 				</div>
 			</div>

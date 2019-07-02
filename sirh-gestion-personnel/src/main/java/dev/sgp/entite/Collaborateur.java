@@ -15,6 +15,8 @@ public class Collaborateur {
     private String photo;
     private ZonedDateTime dateHeureCreation;
     private boolean actif;
+    private String intitulePoste;
+    private Departement departement;
 
     public Collaborateur() {
     }
@@ -114,6 +116,22 @@ public class Collaborateur {
         this.actif = actif;
     }
 
+    public String getIntitulePoste() {
+        return intitulePoste;
+    }
+
+    public void setIntitulePoste(String intitulePoste) {
+        this.intitulePoste = intitulePoste;
+    }
+
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -121,6 +139,8 @@ public class Collaborateur {
         builder.append(matricule);
         builder.append(", nom=");
         builder.append(nom);
+        builder.append(", prenom=");
+        builder.append(prenom);
         builder.append(", dateDeNaissance=");
         builder.append(dateDeNaissance);
         builder.append(", adresse=");
@@ -135,6 +155,10 @@ public class Collaborateur {
         builder.append(dateHeureCreation);
         builder.append(", actif=");
         builder.append(actif);
+        builder.append(", intitulePoste=");
+        builder.append(intitulePoste);
+        builder.append(", departement=");
+        builder.append(departement);
         builder.append("]");
         return builder.toString();
     }

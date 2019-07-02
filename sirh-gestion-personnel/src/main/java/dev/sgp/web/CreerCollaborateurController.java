@@ -54,9 +54,7 @@ public class CreerCollaborateurController extends HttpServlet {
 
             collabService.sauvegarderCollaborateur(collab);
 
-            req.setAttribute("listeCollabs", collabService.listerCollaborateurs());
-
-            req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/collaborateurs/lister");
         }
 
     }
